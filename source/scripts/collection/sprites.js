@@ -1,15 +1,15 @@
-define(['backbone', 'sprite'], function(Backbone, Sprite){
-	
-	var Sprites = Backbone.Collection.extend({
-        model: Sprite,
-        
-        destroyAll: function(){
-            while(this.length > 0){
-                this.at(0).destroy();
-            }
+import Backbone from "..\\backbone.amd.js";
+import { Sprite } from "..\\model\\sprite.js";
+
+var Sprites = Backbone.Collection.extend({
+    model: Sprite,
+    
+    destroyAll: function(){
+        while(this.length > 0){
+            this.at(0).destroy();
         }
-    });
-	
-	return Sprites;
-	
+    }
 });
+
+var exported_Sprites = Sprites;
+export { exported_Sprites as Sprites };
