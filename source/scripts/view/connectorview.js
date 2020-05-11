@@ -1,57 +1,59 @@
-define(['constants', 'jquery', 'backbone'], function(Constants, $, Backbone){
+import Backbone from "..\\backbone.js";
+import $ from "..\\jquery-1.7.2.min.js";
+import { constants_obj as Constants } from "..\\constants.js";
 
-	var ConnectorView = Backbone.View.extend({
-        initialize: function(options) {
-            this.shape = options.board.paper.path();
-            this.shape.toBack();
-            this.shape.attr({stroke: this.model.get("stroke"), "stroke-width": this.model.get("stroke-width")});
-            this.el = this.shape.node;
-            this.$el = $(this.shape.node);
-            
-			this.model.coords.on("add", this.render, this);
-            this.model.on("change:flipflopactive", this.flipFlopActiveChanged, this);
-            this.model.on("destroy", this.destroyed, this);
-			
-            this.render();
-        },
-
-        events: {
-            "click" : "destroy",
-            "touchend" : "destroy"
-        },
+var ConnectorView = Backbone.View.extend({
+    initialize: function(options) {
+        this.shape = options.board.paper.path();
+        this.shape.toBack();
+        this.shape.attr({stroke: this.model.get("stroke"), "stroke-width": this.model.get("stroke-width")});
+        this.el = this.shape.node;
+        this.$el = $(this.shape.node);
         
-        flipFlopActiveChanged: function(connector){
-            //change the color of the connector
-            if(connector.get("flipflopactive")){
-                this.shape.attr({"stroke": Constants.connectorStrokeColor});
-            }
-            else{
-                this.shape.attr({"stroke": Constants.flipFlopDeactiveColor});
-            }
-        },
+        this.model.coords.on("add", this.render, this);
+        this.model.on("change:flipflopactive", this.flipFlopActiveChanged, this);
+        this.model.on("destroy", this.destroyed, this);
         
-        destroy: function(e){
-            var self = this;
-            if(self.model.get("canDelete")){
-                self.model.destroy();
-            }
-        },
+        this.render();
+    },
 
-        render: function() {
-            //we work out the SVG path on render and update the model with it
-            var path = this.model.coordsToSVGPath();
-            this.shape.attr({
-                path: path
-            });
-            this.model.set("path", path);
-        },
+    events: {
+        "click" : "destroy",
+        "touchend" : "destroy"
+    },
+    
+    flipFlopActiveChanged: function(connector){
+        //change the color of the connector
+        if(connector.get("flipflopactive")){
+            this.shape.attr({"stroke": Constants.connectorStrokeColor});
+        }
+        else{
+            this.shape.attr({"stroke": Constants.flipFlopDeactiveColor});
+        }
+    },
+    
+    destroy: function(e){
+        var self = this;
+        if(self.model.get("canDelete")){
+            self.model.destroy();
+        }
+    },
 
-		destroyed: function(){
-			this.remove();
-		}
+    render: function() {
+        //we work out the SVG path on render and update the model with it
+        var path = this.model.coordsToSVGPath();
+        this.shape.attr({
+            path: path
+        });
+        this.model.set("path", path);
+    },
+
+    destroyed: function(){
+        this.remove();
+    }
 
 
-    });
-	
-	return ConnectorView;
 });
+
+var exported_ConnectorView = ConnectorView;
+export { exported_ConnectorView as ConnectorView };

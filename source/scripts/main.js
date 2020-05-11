@@ -1,3 +1,4 @@
+import ".\\router\\approuter.js";
 // Require.js allows us to configure shortcut alias
 // There usage will become more apparent futher along in the tutorial.
 require.config({
@@ -52,9 +53,3 @@ require.config({
   },
   priority: ['jquery', 'raphael', 'underscore', 'backbone']
 });
-
-define(["order!jquery", "order!raphael", "order!underscore", "order!backbone", "boardview", "approuter"],
-	function($, Raphael, _, Backbone, BoardView){
-	
-	}
-);
