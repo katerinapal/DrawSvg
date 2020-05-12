@@ -1,6 +1,6 @@
-define(['startnodeview'], function(StartNodeView){
-	
-	var JoinStartNodeView = StartNodeView.extend();
-    
-	return JoinStartNodeView;
-});
+import { StartNodeView } from ".\\startnodeview.js";
+
+var JoinStartNodeView = StartNodeView.extend();
+
+return JoinStartNodeView;
+export { exported_joinstartnodeviewjs };

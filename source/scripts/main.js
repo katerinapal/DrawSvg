@@ -1,3 +1,8 @@
+import ".\\router\\approuter.js";
+import Backbone from ".\\backbone-min.js";
+import _ from ".\\underscore.js";
+import Raphael from ".\\raphael.amd.js";
+import $ from ".\\jquery-1.7.2.min.js";
 // Require.js allows us to configure shortcut alias
 // There usage will become more apparent futher along in the tutorial.
 require.config({
@@ -52,9 +57,3 @@ require.config({
   },
   priority: ['jquery', 'raphael', 'underscore', 'backbone']
 });
-
-define(["jquery", "raphael", "underscore", "backbone", "boardview", "approuter"],
-	function($, Raphael, _, Backbone, BoardView){
-	
-	}
-);
