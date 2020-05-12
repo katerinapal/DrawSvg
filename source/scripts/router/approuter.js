@@ -1,4 +1,4 @@
-require(['order!underscore', 'order!backbone', 'boardview'], function(_, Backbone, BoardView){
+require(['underscore', 'backbone', 'boardview'], function(_, Backbone, BoardView){
 	
 	var AppRouter = Backbone.Router.extend({
 		

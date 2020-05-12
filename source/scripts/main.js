@@ -53,7 +53,7 @@ require.config({
   priority: ['jquery', 'raphael', 'underscore', 'backbone']
 });
 
-define(["order!jquery", "order!raphael", "order!underscore", "order!backbone", "boardview", "approuter"],
+define(["jquery", "raphael", "underscore", "backbone", "boardview", "approuter"],
 	function($, Raphael, _, Backbone, BoardView){
 	
 	}

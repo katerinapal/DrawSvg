@@ -1,9 +1,9 @@
 define(
 	[
-	'order!underscore',
-	'order!backbone',
-	'order!raphael',
-	'order!jquery',
+	'underscore',
+	'backbone',
+	'raphael',
+	'jquery',
 	'constants',
 	'node',
 	'nodes',

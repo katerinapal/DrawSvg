@@ -1075,4 +1075,4 @@
     return this._wrapped;
   };
 
-}).call(this);
+}).call(window);

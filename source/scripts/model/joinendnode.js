@@ -1,4 +1,4 @@
-define(["order!underscore", "node", "nodeconnectorendmixin", "constants"], function(_, Node, NodeConnectorEndMixin, Constants){
+define(["underscore", "node", "nodeconnectorendmixin", "constants"], function(_, Node, NodeConnectorEndMixin, Constants){
 	var JoinEndNode = Node.extend({
 	
 		initialize: function(options){
